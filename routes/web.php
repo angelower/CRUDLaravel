@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\DeviceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
-Route::get('devices', [DevicesController::class , 'index']);
+Route::resource('devices', 'App\Http\Controllers\DeviceController');
 
-Route::get('devices/create', [DevicesController::class , 'create']);
+Route::get('devices/create', [DeviceController::class , 'create']);
 
-Route::get('devices/{device}', [DevicesController::class , 'show']);
+Route::get('devices/{device}', [DeviceController::class , 'show']);

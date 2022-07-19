@@ -1,0 +1,1 @@
+<h1>Home desde la carpeta view del proyecto</h1>
