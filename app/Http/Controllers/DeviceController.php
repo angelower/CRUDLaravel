@@ -65,7 +65,8 @@ class DeviceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $device = Device::find($id);
+        return view('devices.edit')->with('device' , $device);
     }
 
     /**
@@ -77,7 +78,14 @@ class DeviceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $device = Device::find($id);
+        $device->device = $request->get('device');
+        $device->brand = $request->get('brand');
+        $device->model = $request->get('model');
+        $device->mtto = $request->get('mtto');
+
+        $device->save();
+        return redirect('/devices');
     }
 
     /**
@@ -88,6 +96,8 @@ class DeviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $device = Device::find($id);
+        $device->delete();
+        return redirect('/devices');
     }
 }
